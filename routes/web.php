@@ -35,3 +35,19 @@ Route::get('/', function () {
 Route::get('/event', function () {
     return view('frontend.event');
 })->name('event.index');
+
+Route::get('/transaction', function () {
+    return view('frontend.transaction');
+})->name('transaction.index');
+
+Route::get('/profile', function () {
+    return view('frontend.profile');
+})->name('profile.index');
+
+Route::get('/event/detail', function () {
+return view('frontend.detail');
+})->name('event.detail.index');
+
+Route::get('/event/payment', function () {
+return view('frontend.payment');
+})->name('event.payment.index');

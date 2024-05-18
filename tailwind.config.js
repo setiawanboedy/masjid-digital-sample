@@ -8,18 +8,18 @@ export default {
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './vendor/laravel/jetstream/**/*.blade.php',
         './storage/framework/views/*.php',
-        './resources/views/frontend/**/*.blade.php',
+        './resources/views/**/*.blade.php',
     ],
 
     theme: {
         extend: {
             colors: {
                 utama: '#079A91',
-              },
-            fontFamily: {
-            nunito: ['Nunito']
-            }
+            },
         },
+        fontFamily: {
+            nunito: ['Nunito']
+        }
     },
 
     plugins: [forms, typography],

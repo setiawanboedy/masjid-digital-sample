@@ -25,13 +25,14 @@
 
         <div id="main">
             <header>
-                @include('frontend.includes.navigation')
+                @include('frontend.includes.detail.navigation')
             </header>
 
             <div class="page-content">
                 @yield('content')
             </div>
-            @include('frontend.includes.footer')
+            @stack('footer')
+            
         </div>
 
         @stack('modals')
