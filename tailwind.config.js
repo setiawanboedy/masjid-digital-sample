@@ -1,5 +1,6 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
+import daisyui from "daisyui"
 import typography from '@tailwindcss/typography';
 
 /** @type {import('tailwindcss').Config} */
@@ -21,6 +22,9 @@ export default {
             nunito: ['Nunito']
         }
     },
+    daisyui: {
+        themes: ["light"],
+      },
 
-    plugins: [forms, typography],
+    plugins: [forms, typography, daisyui],
 };

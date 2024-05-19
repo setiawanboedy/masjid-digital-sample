@@ -1,6 +1,6 @@
 <footer class="bg-white border border-gray-200 fixed bottom-0 inset-x-0 w-screen z-[999] rounded-md shadow">
     <div class="mx-auto max-w-screen-md py-2 flex items-center justify-evenly">
-      <a href="{{ route('home.index')}}" class="flex flex-col items-center">
+      <a href="/" wire:navigate class="flex flex-col items-center">
         <svg class="{{ request()->is('/') ? 'fill-utama' : '' }}" stroke="currentColor" fill="grey" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="24"
           width="24" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -12,7 +12,7 @@
         </svg>
         <p class="text-sm {{ request()->is('/') ? 'text-utama' : '' }}">Home</p>
       </a>
-      <a href="{{ route('event.index')}}" class="flex flex-col items-center">
+      <a href="/event" wire:navigate class="flex flex-col items-center">
         <div class="mt-[1px]">
           <svg class="{{ request()->is('event*') ? 'fill-utama' : '' }}" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="grey"
              viewBox="0 0 16 16">

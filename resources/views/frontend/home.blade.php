@@ -21,7 +21,7 @@
           </svg></a>
       </header>
       <div class="overflow-x-auto flex whitespace-nowrap gap-4 py-2 px-4">
-        <a class="w-[160px]" href="{{route('event.detail.index')}}">
+        <a class="w-[160px]" href="/event/detail" wire:navigate>
           <div class="relative aspect-[4/5]"><img
               src="https://afw.imgix.net/pondokdigital/cover/O405lXX1kIoikr9mxw34c9AILWYI1YNBfbdttoLA.jpg?w=300&amp;fit=crop&amp;auto=format,compress"
               alt="" class="relative rounded-md shadow-md z-[1] aspect-[4/5] object-cover"

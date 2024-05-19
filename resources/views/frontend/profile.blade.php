@@ -50,24 +50,27 @@
         </svg>
       </div>
 
-      <div class="flex justify-content-between items-center cursor-pointer hover:bg-red-100 hover:rounded-md py-4 group">
-        <div class="flex items-center">
-          <svg stroke="currentColor" fill="none" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"
-            class="text-red-500 group-hover:text-black" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round"
-              d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
-          <p class="pl-4 text-red-500 group-hover:text-black">Keluar akun</p>
-        </div>
-        <svg stroke="currentColor" fill="grey" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" class="ml-auto fill-red-500 group-hover:fill-black"
-          height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd"
-            d="M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z"
-            clip-rule="evenodd"></path>
-        </svg>
-      </div>
-
-
+      <form method="POST" action="{{ route('logout') }}" id="logout"  x-data>
+        @csrf
+        <button type="submit" class="w-full">
+          <div class="flex justify-content-between items-center cursor-pointer hover:bg-red-100 hover:rounded-md py-4 group">
+            <div class="flex items-center">
+              <svg stroke="currentColor" fill="none" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"
+                class="text-red-500 group-hover:text-black" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <p class="pl-4 text-red-500 group-hover:text-black">Keluar akun</p>
+            </div>
+            <svg stroke="currentColor" fill="grey" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" class="ml-auto fill-red-500 group-hover:fill-black"
+              height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </div>
+        </button>
+      </form>
     </div>
   </div>
 </main>
