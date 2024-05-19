@@ -3,8 +3,8 @@
 <main class="max-w-2xl mx-auto flex-1 relative pb-14 font-nunito">
     <!-- Image Banner -->
     <a href="#"><img
-        src="https://afw.imgix.net/pondokdigital/user-media/qizAJVCLjPF55h2QytDNdfMDu4oiM8xwK3HptPVW.png??w=600&amp;fit=crop&amp;auto=format,compress"
-        loading="lazy" alt="" class="w-full">
+        src="{{asset('frontend/images/bg-home.jpg')}}"
+        loading="lazy" alt="" class="w-full rounded-md">
     </a>
 
     <!-- Event Terbaru -->

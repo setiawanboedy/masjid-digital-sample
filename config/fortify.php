@@ -157,4 +157,8 @@ return [
         ]),
     ],
 
+    'paths'=>[
+        'login'=> 'admin/login'
+    ],
+
 ];

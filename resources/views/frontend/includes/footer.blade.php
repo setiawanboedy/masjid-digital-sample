@@ -25,23 +25,23 @@
       <a href="{{ route('transaction.index')}}" class="flex flex-col items-center">
         <div class="mt-[1px]">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" fill="currentColor"
-            class="{{ request()->is('transaction*') ? 'fill-utama' : '' }} ml-[1px]" viewBox="0 0 16 16">
+            class="{{ request()->is('transaksi*') ? 'fill-utama' : '' }} ml-[1px]" viewBox="0 0 16 16">
             <path
               d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v12a.5.5 0 0 1-.053.224l-.5 1a.5.5 0 0 1-.8.13L13 14.707l-.646.647a.5.5 0 0 1-.708 0L11 14.707l-.646.647a.5.5 0 0 1-.708 0L9 14.707l-.646.647a.5.5 0 0 1-.708 0L7 14.707l-.646.647a.5.5 0 0 1-.708 0L5 14.707l-.646.647a.5.5 0 0 1-.708 0L3 14.707l-.646.647a.5.5 0 0 1-.801-.13l-.5-1A.5.5 0 0 1 1 14V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27m.217 1.338L2 2.118v11.764l.137.274.51-.51a.5.5 0 0 1 .707 0l.646.647.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.509.509.137-.274V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0z" />
             <path
               d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5" />
           </svg>
         </div>
-        <p class="text-sm pt-[2px] {{ request()->is('transaction*') ? 'text-utama' : '' }}">Transaksi</p>
+        <p class="text-sm pt-[2px] {{ request()->is('transaksi*') ? 'text-utama' : '' }}">Transaksi</p>
       </a>
       <a href="{{ route('profile.index')}}" class="flex flex-col items-center">
-        <svg class="{{ request()->is('profile*') ? 'fill-utama' : '' }}" stroke="currentColor" fill="grey" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="24"
+        <svg class="{{ request()->is('profil*') ? 'fill-utama' : '' }}" stroke="currentColor" fill="grey" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="24"
           width="24" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd"
             d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
             clip-rule="evenodd"></path>
         </svg>
-        <p class="text-sm {{ request()->is('profile*') ? 'text-utama' : '' }}">Profil</p>
+        <p class="text-sm {{ request()->is('profil*') ? 'text-utama' : '' }}">Profil</p>
       </a>
     </div>
   </footer>
