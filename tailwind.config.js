@@ -19,7 +19,8 @@ export default {
             },
         },
         fontFamily: {
-            nunito: ['Nunito']
+            nunito: ['Nunito'],
+            sans: ['Figtree', ...defaultTheme.fontFamily.sans],
         }
     },
     daisyui: {

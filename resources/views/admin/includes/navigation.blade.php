@@ -15,16 +15,21 @@
 	<ul class="menu">
 		<li class="sidebar-title">Menu</li>
 			
-		<li class="sidebar-item {{ request()->is('dashboard') ? 'active' : '' }}">
+		<li class="sidebar-item {{ request()->is('admin/dashboard') ? 'active' : '' }}">
 			<a href="{{ route('dashboard') }}" class='sidebar-link'>
 				<i class="bi bi-grid-fill"></i>
 				<span>Dashboard</span>
 			</a>
 		</li>
-
+		
 		<li class="sidebar-title"><i class="bi bi-menu-button-wide"></i></li>
-
-
+		
+		<li class="sidebar-item {{ request()->is('admin/event') ? 'active' : '' }}">
+			<a href="{{ route('admin.event.index') }}" class='sidebar-link'>
+				<i class="bi bi-calendar-event-fill"></i>
+				<span>Event</span>
+			</a>
+		</li>
 		{{-- <li class="sidebar-item has-sub {{ request()->routeIs('graph.*') ? 'active' : '' }}">
 			<a href="#" class='sidebar-link'>
 				<i class="bi bi-bar-chart-fill"></i>
@@ -44,11 +49,17 @@
 			</a>
 		</li> --}}
 		
-		<li class="sidebar-item">
-			<button type="button" class='sidebar-link' data-bs-toggle="modal"
+		{{-- <li class="sidebar-item">
+			<div class='sidebar-link' data-bs-toggle="modal"
 			data-bs-target="#logoutModal">
 			<i class="bi bi-box-arrow-left"></i><span>Logout</span>
-			</button>
+			</div>
+		</li> --}}
+		<li class="sidebar-item" data-bs-toggle="modal" data-bs-target="#logoutModal">
+			<a href="#" class='sidebar-link'>
+				<i class="bi bi-box-arrow-left"></i>
+				<span>Logout</span>
+			</a>
 		</li>
 
 	</ul>

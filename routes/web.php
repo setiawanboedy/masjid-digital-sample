@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BackendController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -22,8 +23,24 @@ Route::prefix('admin')
         'verified',
         'admin'
     ])->group(function () {
-        Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+        Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+        Route::get('/event', function () {
+            return view('admin.event');
+        })->name('admin.event.index');
+
+        Route::get('/event/buat', [BackendController::class, 'createEvent'])->name('admin.event.create');
+        
     });
+
+    Route::middleware([
+        'auth:sanctum',
+        config('jetstream.auth_session'),
+        'verified',
+        'admin'
+    ])->group(function () {
+        Route::post('/upload/editor', [BackendController::class, 'uploadImageTextEditor'])->name('editor.image.upload');
+    });    
 
 
     // Frontend

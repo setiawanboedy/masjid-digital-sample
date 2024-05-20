@@ -325,3 +325,6 @@
 .iconly-boldWork:before {
   content: "\e963";
 }
+.iconly-boldGlobe:before {
+  content: "\e9c9";
+}

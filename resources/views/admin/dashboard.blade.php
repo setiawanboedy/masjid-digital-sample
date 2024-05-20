@@ -17,7 +17,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <h6 class="font-semibold text-muted">Customer Service</h6>
-                                        <h6 class="font-extrabold {{ 21 <= 2 ? 'text-danger' : '' }} mb-0">
+                                        <h6 class="font-bold {{ 21 <= 2 ? 'text-danger' : '' }} mb-0">
                                             0
                                         </h6>
                                     </div>
@@ -38,7 +38,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <h6 class="font-semibold text-muted">Transaksi Donasi</h6>
-                                        <h6 class="font-extrabold {{ 12 <= 0 ? 'text-danger' : '' }} mb-0">
+                                        <h6 class="font-bold {{ 12 <= 0 ? 'text-danger' : '' }} mb-0">
                                             0
                                         </h6>
                                     </div>
@@ -59,7 +59,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <h6 class="font-semibold text-muted">Program</h6>
-                                        <h6 class="font-extrabold {{ 2 <= 0 ? 'text-danger' : '' }} mb-0">
+                                        <h6 class="font-bold {{ 2 <= 0 ? 'text-danger' : '' }} mb-0">
                                             0
                                         </h6>
                                     </div>
@@ -85,7 +85,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <h6 class="font-semibold text-muted">Donatur</h6>
-                                        <h6 class="mb-0 font-extrabold">0</h6>
+                                        <h6 class="mb-0 font-bold">0</h6>
                                     </div>
                                 </div>
                             </div>

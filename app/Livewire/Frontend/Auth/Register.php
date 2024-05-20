@@ -2,7 +2,6 @@
 
 namespace App\Livewire\Frontend\Auth;
 
-use App\Jobs\DelayJob;
 use Livewire\Component;
 use Illuminate\Validation\Rules\Password;
 
