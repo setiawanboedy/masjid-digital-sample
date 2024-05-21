@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('category_id')->constrained();
+            $table->enum('category',['SERIES','ONLINE','OFFLINE'])->default('SERIES');
             $table->string('title');
             $table->text('image');
             $table->dateTime('dtm');

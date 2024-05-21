@@ -1,5 +1,15 @@
 <div>
     <div class="card">
+        @if (session()->has('success'))
+            <div class="alert alert-success" role="alert">
+                {{ session('success') }}
+            </div>
+        @endif
+        @if (session()->has('error'))
+            <div class="alert alert-error" role="alert">
+                {{ session('error') }}
+            </div>
+        @endif
         <form wire:submit.prevent='store' class="p-md-5">
             @csrf
             <div class="col-sm-12 col-md-12 col-lg-12">
@@ -10,33 +20,52 @@
                 </div>
             </div>
 
-            <div class="col-sm-12 col-md-12 col-lg-12">
-                <div class="mb-3">
-                    <label for="date" class="form-label">Tanggal Event</label>
-                    <input type="date" class="form-control @error('date') is-invalid @enderror" name="date"
-                        id="date" wire:model='date' value="{{ old('date') }}"
-                        placeholder="Masukkan tanggal event" required>
-
-                    @error('date')
-                        <div class="d-block invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <div class="mb-3">
+                        <label for="date" class="form-label">Tanggal Event</label>
+                        <input type="date" class="form-control @error('date') is-invalid @enderror" name="date"
+                            id="date" wire:model='date' value="{{ old('date') }}"
+                            placeholder="Masukkan tanggal event" required>
+    
+                        @error('date')
+                            <div class="d-block invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
                 </div>
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <div class="mb-3">
+                        <label for="time" class="form-label">Jam Event</label>
+                        <input type="time" class="form-control @error('time') is-invalid @enderror" name="time"
+                            id="time" wire:model='time' value="{{ old('time') }}"
+                            placeholder="Masukkan tanggal event" required>
+    
+                        @error('time')
+                            <div class="d-block invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                </div>
+
             </div>
 
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <div class="mb-3">
-                    <label for="category_id" class="form-label">Kategori Event</label>
-                    <select class="form-select @error('category_id') is-invalid @enderror" name="category_id" id="category_id"
-                        wire:model='category_id'>
+                    <label for="category" class="form-label">Kategori Event</label>
+                    <select class="form-select @error('category') is-invalid @enderror" name="category" id="category"
+                        wire:model='category'>
                         <option selected>Pilih Kategori</option>
-                        <option value="1" {{ old('category_id') === '1' ? 'selected' : '' }}>Web Series</option>
-                        <option value="2" {{ old('category_id') === '2' ? 'selected' : '' }}>Event Online</option>
-                        <option value="3" {{ old('category_id') === '3' ? 'selected' : '' }}>Event Offline</option>
+                        <option value="SERIES" {{ old('category') === 'SERIES' ? 'selected' : '' }}>Web Series</option>
+                        <option value="ONLINE" {{ old('category') === 'ONLINE' ? 'selected' : '' }}>Event Online
+                        </option>
+                        <option value="OFFLINE" {{ old('category') === 'OFFLINE' ? 'selected' : '' }}>Event Offline
+                        </option>
                     </select>
 
-                    @error('category_id')
+                    @error('category')
                         <div class="d-block invalid-feedback">
                             {{ $message }}
                         </div>

@@ -11,12 +11,28 @@ class Event extends Model
 
     protected $fillable = [
         'user_id',
-        'category_id',
+        'category',
         'title',
         'image',
         'dtm',
         'description',
     ];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    const CATEGORY_LABELS = [
+        'SERIES' => 'Web Series',
+        'ONLINE' => 'Event Online',
+        'OFFLINE' => 'Event Offline',
+        
+    ];
+
+    public function getCategoryAttribute($value)
+    {
+        return $this::CATEGORY_LABELS[$value] ?? $value;
+    }
 
 }

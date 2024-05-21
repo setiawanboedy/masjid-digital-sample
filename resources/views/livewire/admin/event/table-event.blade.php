@@ -103,27 +103,30 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @foreach ($asbabs as $asbab)
+                        @foreach ($events as $event)
 						<tr>
-							<th>{{$loop->iteration}}</th>
-							<td>{{$asbab->name}}</td>
-							<td>{{$asbab->nip ?? '-'}}</td>
-							<td>{{\App\Helper\ConvertGender::genderToString($asbab->gender)}}</td>
-							<td>{{$asbab->hp}}</td>
+							<td>{{$loop->iteration}}</td>
+							<td>{{$event->title}}</td>
+							<td>{{$event->dtm}}</td>
+							<td>{{$event->category}}</td>
+							<td>{{$event->user->name}}</td>
+							<td>
+                                <img src="{{Storage::url($event->image)}}" alt="poster" width="85" height="85" class="rounded">    
+                            </td>
 							<td class="text-bold-500">
 								<div class="gap-2 mb-3 btn-group gap" role="group">
 									<button type="button"
 										class="btn btn-success btn-sm update-modal" data-bs-toggle="modal"
-										data-bs-target="#updateAsbabModal" wire:click="editAsbab({{$asbab->id}})">
+										data-bs-target="#updateAsbabModal" wire:click="#">
 										<i class="bi bi-pencil-square"></i>
 									</button>
-									<button type="button" class="btn btn-danger btn-sm delete"wire:click="deleteAsbab({{$asbab->id}})">
+									<button type="button" class="btn btn-danger btn-sm delete" wire:click="#">
 										<i class="bi bi-trash-fill"></i>
 									</button>
 								</div>
 							</td>
 						</tr>
-						@endforeach --}}
+						@endforeach
                     </tbody>
                 </table>
             </div>

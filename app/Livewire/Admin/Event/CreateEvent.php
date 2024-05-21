@@ -4,6 +4,7 @@ namespace App\Livewire\Admin\Event;
 
 use App\Models\Category;
 use App\Models\Event;
+use Carbon\Carbon;
 use DateTime;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
@@ -19,10 +20,11 @@ class CreateEvent extends Component
     #[Validate('required', message: 'Tidak boleh kosong', onUpdate: false)]
     public $title;
 
-    #[Validate('required', message: 'Tidak boleh kosong', onUpdate: false)]
     public $date;
+    public $time;
 
-    public $category_id;
+    #[Validate('required')]
+    public $category;
 
     #[Validate('required', message: 'Tidak boleh kosong', onUpdate: false)]
     public $image;
@@ -36,18 +38,27 @@ class CreateEvent extends Component
     {
         try {
             $input = $this->validate();
-            $input['dtm'] = Date::now();
+            $dateTime = Carbon::createFromFormat('Y-m-d H:i', "{$this->date} {$this->time}");
+            $input['dtm'] = $dateTime;
             $input['user_id'] = Auth::user()->id;
             $input['image'] = $this->image->store('posters', 'public');
-            $category = Category::create([
-                'text'=>'Web Series',
-                'category'=>'SERIES',
-            ]);
-            $input['category_id'] = $category->id;
             Event::create($input);
+
+            session()->flash('success', 'Data berhasil disimpan.');
+            $this->resetForm();
+            return redirect()->route('admin.event.index');
         } catch (\Exception $e) {
-            dd($e->getMessage());
+            session()->flash('error', 'Data gagal disimpan.');
         }
+    }
+
+    private function resetForm()
+    {
+        $this->title = null;
+        $this->date = null;
+        $this->category = null;
+        $this->image = null;
+        $this->description = null;
     }
 
     public function render()
