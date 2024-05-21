@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\BackendController;
+use App\Http\Controllers\Frontend\FrontEndController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -44,9 +45,7 @@ Route::prefix('admin')
 
 
     // Frontend
-Route::get('/', function () {
-    return view('frontend.home');
-})->name('home.index');
+Route::get('/', [FrontEndController::class, 'home'])->name('home.index');
 
 Route::get('/event', function () {
     return view('frontend.event');
@@ -56,9 +55,7 @@ Route::get('/event/pembayaran', function () {
     return view('frontend.payment');
 })->name('event.payment.index');
 
-Route::get('/event/detail', function () {
-return view('frontend.detail');
-})->name('event.detail.index');
+Route::get('/event/detail/{slug}', [FrontEndController::class, 'detailEvent'])->name('event.detail.index');
 
 Route::get('/masuk', function () {
 return view('frontend.auth.login');

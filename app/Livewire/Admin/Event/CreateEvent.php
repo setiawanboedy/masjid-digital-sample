@@ -2,12 +2,10 @@
 
 namespace App\Livewire\Admin\Event;
 
-use App\Models\Category;
 use App\Models\Event;
 use Carbon\Carbon;
-use DateTime;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Date;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 use Livewire\WithFileUploads;
@@ -39,6 +37,8 @@ class CreateEvent extends Component
         try {
             $input = $this->validate();
             $dateTime = Carbon::createFromFormat('Y-m-d H:i', "{$this->date} {$this->time}");
+            $ran = Str::random(5);
+            $data['slug'] = str::slug($this->title).'-'.$ran;
             $input['dtm'] = $dateTime;
             $input['user_id'] = Auth::user()->id;
             $input['image'] = $this->image->store('posters', 'public');

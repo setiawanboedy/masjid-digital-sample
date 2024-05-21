@@ -13,6 +13,7 @@ class Event extends Model
         'user_id',
         'category',
         'title',
+        'slug',
         'image',
         'dtm',
         'description',
@@ -33,6 +34,11 @@ class Event extends Model
     public function getCategoryAttribute($value)
     {
         return $this::CATEGORY_LABELS[$value] ?? $value;
+    }
+
+    public function getCategoryKeyAttribute()
+    {
+        return $this->attributes['category'];
     }
 
 }

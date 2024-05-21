@@ -88,7 +88,7 @@
                 </div>
             </div>
 
-            <div wire:ignore>
+            <div wire:ignore class="">
                 <textarea id="description" wire:model.defer='description' required></textarea>
             </div>
 

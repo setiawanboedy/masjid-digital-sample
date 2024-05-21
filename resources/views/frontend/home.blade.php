@@ -21,107 +21,22 @@
           </svg></a>
       </header>
       <div class="overflow-x-auto flex whitespace-nowrap gap-4 py-2 px-4">
-        <a class="w-[160px]" href="/event/detail" wire:navigate>
+        @foreach ($events as $event)
+            
+        <a class="w-[160px]" href="{{route('event.detail.index', $event->slug)}}" wire:navigate>
           <div class="relative aspect-[4/5]"><img
-              src="https://afw.imgix.net/pondokdigital/cover/O405lXX1kIoikr9mxw34c9AILWYI1YNBfbdttoLA.jpg?w=300&amp;fit=crop&amp;auto=format,compress"
+              src="{{Storage::url($event->image)}}"
               alt="" class="relative rounded-md shadow-md z-[1] aspect-[4/5] object-cover"
               style="width: 100%; display: block;"></div>
           <div class="p-4">
-            <h2 class="font-bold text-gray-900 truncate">Belajar Dari Keluarga Nabi Ibrahim</h2>
-            <div class="flex gap-2 items-center text-slate-600 dark:text-slate-400"><svg stroke="currentColor"
-                fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"
-                class="text-slate-400" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="2" y1="12" x2="22" y2="12"></line>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-                </path>
-              </svg> <strong class="font-medium">Event online</strong></div>
+            <h2 class="font-bold text-gray-900 truncate">{{$event->title}}</h2>
+            <div class="flex gap-2 items-center text-slate-600 dark:text-slate-400">
+              <x-category-icon :categoryKey="$event->category_key" />
+              <strong class="font-medium">{{$event->category}}</strong></div>
           </div>
         </a>
-        <a class="w-[160px]" href="/event/abubakar">
-          <div class="relative aspect-[4/5]"><img
-              src="https://afw.imgix.net/pondokdigital/cover/wNzVZ9WpxcfzlakcF3O1o6mkpiJDT6dbrBw5ZzyU.jpg?w=300&amp;fit=crop&amp;auto=format,compress"
-              alt="" class="relative rounded-md shadow-md z-[1] aspect-[4/5] object-cover"
-              style="width: 100%; display: block;"></div>
-          <div class="p-4">
-            <h2 class="font-bold text-gray-900 dark:text-slate-100 truncate">DAUROH SERIES SCALE UP REZEKI - ABU BAKAR
-              ASH SIDDIQ</h2>
-            <div class="flex gap-2 items-center text-slate-600 dark:text-slate-400"><svg stroke="currentColor"
-                fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"
-                class="text-slate-400" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                <rect x="3" y="3" width="7" height="7"></rect>
-                <rect x="14" y="3" width="7" height="7"></rect>
-                <rect x="14" y="14" width="7" height="7"></rect>
-                <rect x="3" y="14" width="7" height="7"></rect>
-              </svg> <strong class="font-medium">Web series</strong></div>
-          </div>
-        </a>
-        
-        <a class="w-[160px]" href="/event/daurohtheseries">
-          <div class="relative aspect-[4/5]"><img
-              src="https://afw.imgix.net/pondokdigital/cover/UUdYcPqw3hHLqMSbfC5I62T4wLvwPsY0pOoM9ug0.jpg?w=300&amp;fit=crop&amp;auto=format,compress"
-              alt="" class="relative rounded-md shadow-md z-[1] aspect-[4/5] object-cover"
-              style="width: 100%; display: block;"></div>
-          <div class="p-4">
-            <h2 class="font-bold text-gray-900 dark:text-slate-100 truncate">DAUROH THE SERIES</h2>
-            <div class="flex gap-2 items-center text-slate-600 dark:text-slate-400"><svg stroke="currentColor"
-                fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"
-                class="text-slate-400" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                <rect x="3" y="3" width="7" height="7"></rect>
-                <rect x="14" y="3" width="7" height="7"></rect>
-                <rect x="14" y="14" width="7" height="7"></rect>
-                <rect x="3" y="14" width="7" height="7"></rect>
-              </svg> <strong class="font-medium">Web series</strong></div>
-          </div>
-        </a>
-        <a class="w-[160px]" href="/event/marbot-camp-2024">
-          <div class="relative aspect-[4/5]"><img
-              src="https://afw.imgix.net/pondokdigital/cover/3Jmr4eOV65koW5QaCCOEhZwFNhOJlrlls1cA5GEr.png?w=300&amp;fit=crop&amp;auto=format,compress"
-              alt="" class="relative rounded-md shadow-md z-[1] aspect-[4/5] object-cover"
-              style="width: 100%; display: block;"></div>
-          <div class="p-4">
-            <h2 class="font-bold text-gray-900 dark:text-slate-100 truncate">Marbot Camp 2024</h2>
-            <div class="flex gap-2 items-center text-slate-600 dark:text-slate-400"><svg stroke="currentColor"
-                fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"
-                class="text-slate-400 flex-shrink-0" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg> <strong class="font-medium flex-1 truncate min-w-0">Masjid Sejuta Pemuda
-                Sukabumi Jawabarat</strong></div>
-          </div>
-        </a>
-        <a class="w-[160px]" href="/event/marbot-camp-2024">
-          <div class="relative aspect-[4/5]"><img
-              src="https://afw.imgix.net/pondokdigital/cover/3Jmr4eOV65koW5QaCCOEhZwFNhOJlrlls1cA5GEr.png?w=300&amp;fit=crop&amp;auto=format,compress"
-              alt="" class="relative rounded-md shadow-md z-[1] aspect-[4/5] object-cover"
-              style="width: 100%; display: block;"></div>
-          <div class="p-4">
-            <h2 class="font-bold text-gray-900 dark:text-slate-100 truncate">Marbot Camp 2024</h2>
-            <div class="flex gap-2 items-center text-slate-600 dark:text-slate-400"><svg stroke="currentColor"
-                fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"
-                class="text-slate-400 flex-shrink-0" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg> <strong class="font-medium flex-1 truncate min-w-0">Masjid Sejuta Pemuda
-                Sukabumi Jawabarat</strong></div>
-          </div>
-        </a>
-        <a class="w-[160px]" href="/event/marbot-camp-2024">
-          <div class="relative aspect-[4/5]"><img
-              src="https://afw.imgix.net/pondokdigital/cover/3Jmr4eOV65koW5QaCCOEhZwFNhOJlrlls1cA5GEr.png?w=300&amp;fit=crop&amp;auto=format,compress"
-              alt="" class="relative rounded-md shadow-md z-[1] aspect-[4/5] object-cover"
-              style="width: 100%; display: block;"></div>
-          <div class="p-4">
-            <h2 class="font-bold text-gray-900 dark:text-slate-100 truncate">Marbot Camp 2024</h2>
-            <div class="flex gap-2 items-center text-slate-600 dark:text-slate-400"><svg stroke="currentColor"
-                fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"
-                class="text-slate-400 flex-shrink-0" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg> <strong class="font-medium flex-1 truncate min-w-0">Masjid Sejuta Pemuda
-                Sukabumi Jawabarat</strong></div>
-          </div>
-        </a>
+        @endforeach
+       
       </div>
     </section>
 

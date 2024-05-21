@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->enum('category',['SERIES','ONLINE','OFFLINE'])->default('SERIES');
             $table->string('title');
+            $table->string('slug');
             $table->text('image');
             $table->dateTime('dtm');
             $table->longText('description');
