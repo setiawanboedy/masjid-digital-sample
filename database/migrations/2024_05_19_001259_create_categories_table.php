@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->enum('category',['ONLINE','OFFLINE','SERIES'])->default('ONLINE');
-            $table->string('text');
+            $table->string('category');
             $table->timestamps();
         });
     }
