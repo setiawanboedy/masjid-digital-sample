@@ -1,22 +1,21 @@
 <div>
     <div class="card">
-        @if (session()->has('success'))
-            <div class="alert alert-success" role="alert">
-                {{ session('success') }}
-            </div>
-        @endif
-        @if (session()->has('error'))
-            <div class="alert alert-error" role="alert">
-                {{ session('error') }}
-            </div>
-        @endif
         <form wire:submit.prevent='store' class="p-md-5">
             @csrf
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <div class="mb-3">
                     <label for="title" class="form-label">Judul</label>
-                    <input type="text" class="form-control" name="title" id="title" wire:model='title'
-                        value="{{ old('title') }}" placeholder="Masukkan judul event" required>
+                    <input type="text"
+                        class="form-control @error('title')
+                    is-invalid
+                    @enderror"
+                        name="title" id="title" wire:model.lazy='title' value="{{ old('title') }}"
+                        placeholder="Masukkan judul event" required>
+                    @error('title')
+                        <div class="d-block invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
             </div>
 
@@ -27,12 +26,6 @@
                         <input type="date" class="form-control @error('date') is-invalid @enderror" name="date"
                             id="date" wire:model='date' value="{{ old('date') }}"
                             placeholder="Masukkan tanggal event" required>
-    
-                        @error('date')
-                            <div class="d-block invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-6">
@@ -41,12 +34,6 @@
                         <input type="time" class="form-control @error('time') is-invalid @enderror" name="time"
                             id="time" wire:model='time' value="{{ old('time') }}"
                             placeholder="Masukkan tanggal event" required>
-    
-                        @error('time')
-                            <div class="d-block invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
                     </div>
                 </div>
 
@@ -56,7 +43,7 @@
                 <div class="mb-3">
                     <label for="category" class="form-label">Kategori Event</label>
                     <select class="form-select @error('category') is-invalid @enderror" name="category" id="category"
-                        wire:model='category'>
+                        wire:model.change='category' required>
                         <option selected>Pilih Kategori</option>
                         <option value="SERIES" {{ old('category') === 'SERIES' ? 'selected' : '' }}>Web Series</option>
                         <option value="ONLINE" {{ old('category') === 'ONLINE' ? 'selected' : '' }}>Event Online
@@ -72,6 +59,62 @@
                     @enderror
                 </div>
             </div>
+
+            @if ($category === 'SERIES')
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <label for="title" class="form-label">Link video</label>
+                            <div class="d-flex justify-content-end align-items-end">
+                                <a wire:click='addUrl' class="btn btn-success ">+</a>
+                            </div>
+                        </div>
+                        @foreach ($videos as $index => $video)
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div>{{ $index + 1 }}.</div>
+                                <div class="col px-2">
+                                    <input type="text"
+                                        class="form-control @error('videos' . $index . 'title') is-invalid @enderror"
+                                        wire:model.lazy.defer='videos.{{ $index }}.title'
+                                        placeholder="Judul video" required>
+                                    @error('videos' . $index . 'title')
+                                        <div class="d-block invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="col px-2">
+                                    <input type="text"
+                                        class="form-control @error('videos' . $index . 'video_url') is-invalid @enderror"
+                                        wire:model.lazy.defer='videos.{{ $index }}.video_url'
+                                        placeholder="Link video" required>
+                                    @error('videos' . $index . 'video_url')
+                                        <div class="d-block invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="px-2">
+                                    <input type="checkbox"
+                                        class="form-check-input @error('videos.' . $index . '.is_unlock') is-invalid @enderror"
+                                        wire:model.defer="videos.{{ $index }}.is_unlock"
+                                        id="is_unlock{{ $index }}">
+                                    <label class="form-check-label" for="is_unlock{{ $index }}">Preview</label>
+                                    @error('videos.' . $index . '.is_unlock')
+                                        <div class="d-block invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="align-items-center">
+                                    <button class="btn btn-outline-danger"
+                                        wire:click.prevent="removeUrl({{ $index }})">-</button>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
 
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <div class="mb-3">

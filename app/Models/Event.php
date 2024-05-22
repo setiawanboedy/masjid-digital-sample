@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Helper\ConvertDateTimeFormat;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -24,6 +25,11 @@ class Event extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function series()
+    {
+        return $this->hasMany(Series::class);
+    }
+
     const CATEGORY_LABELS = [
         'SERIES' => 'Web Series',
         'ONLINE' => 'Event Online',
@@ -39,6 +45,14 @@ class Event extends Model
     public function getCategoryKeyAttribute()
     {
         return $this->attributes['category'];
+    }
+
+    public function getDateAttribute() {
+        return ConvertDateTimeFormat::toDateId($this->dtm);
+    }
+    
+    public function getTimeAttribute() {
+        return ConvertDateTimeFormat::toTime($this->dtm);
     }
 
 }

@@ -31,8 +31,8 @@
           <div class="p-4">
             <h2 class="font-bold text-gray-900 truncate">{{$event->title}}</h2>
             <div class="flex gap-2 items-center text-slate-600 dark:text-slate-400">
-              <x-category-icon :categoryKey="$event->category_key" />
-              <strong class="font-medium">{{$event->category}}</strong></div>
+              <x-category-icon :event="$event" />
+            </div>
           </div>
         </a>
         @endforeach

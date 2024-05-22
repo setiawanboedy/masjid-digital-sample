@@ -29,13 +29,18 @@
                                 <line x1="8" y1="2" x2="8" y2="6"></line>
                                 <line x1="3" y1="10" x2="21" y2="10"></line>
                             </svg>
-                            <p class="text-sm text-gray-500 pl-2">{{ $event->dtm }}</p>
+                            <p class="text-sm text-gray-500 pl-2">{{ $event->date }}</p>
+                        </div>
+                        <div class="flex items-center mt-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/>
+                              </svg>
+                            <p class="text-sm text-gray-500 pl-2">{{ $event->time }} WITA</p>
                         </div>
 
-                        <div class="flex items-center mt-1">
-                            <x-category-icon :categoryKey="$event->category_key" />
-                            <p class="text-sm text-gray-500 pl-2">3 Episode</p>
-                        </div>
+                        <x-category-icon :event="$event" />
+                        
 
                     </div>
                     <div class="right-0 bottom-0 absolute mb-4">
@@ -66,39 +71,29 @@
                 </div>
             </div>
 
-            <header class="mt-8">
-                <h1 class="font-bold text-xl">Preview Video</h1>
-            </header>
-            <div class="my-4">
-                <div
-                    class="flex justify-between items-center cursor-pointer my-4 shadow-sm border rounded-md w-full py-3 px-5 hover:bg-slate-100">
-                    <div class="flex items-center">
-                        <i class="fa-solid fa-video text-slate-500"></i>
-                        <p class="pl-4 text-slate-700">Cara Benar Bayar Zakat Maal</p>
-                    </div>
-                    <i class="fa-solid fa-play text-utama"></i>
-                    {{-- <i class="fa-solid fa-lock text-slate-500"></i> --}}
+            @if ($event->category_key == 'SERIES')
+                <header class="mt-8">
+                    <h1 class="font-bold text-xl">Preview Video</h1>
+                </header>
+                <div class="my-4">
+                    @foreach ($event->series as $item)
+                        <div
+                            class="flex justify-between items-center my-4 shadow-sm border rounded-md w-full py-3 px-5 hover:bg-slate-100">
+                            <div class="flex items-center">
+                                <i class="fa-solid fa-video text-slate-500"></i>
+                                <p class="pl-4 text-slate-700">{{ $item->title }}</p>
+                            </div>
+                            @if ($item->is_unlock == 1)
+                            <a href="{{$item->video_url}}">
+                                <i class="fa-solid fa-play text-utama"></i>
+                            </a>
+                            @else
+                                <i class="fa-solid fa-lock text-slate-500"></i>
+                            @endif
+                        </div>
+                    @endforeach
                 </div>
-                <div
-                    class="flex justify-between items-center  my-4 shadow-sm border rounded-md w-full py-3 px-5 hover:bg-slate-100">
-                    <div class="flex items-center">
-                        <i class="fa-solid fa-video text-slate-500"></i>
-                        <p class="pl-4 text-slate-700">Cara Benar Bayar Zakat Maal</p>
-                    </div>
-                    {{-- <i class="fa-solid fa-play text-utama"></i> --}}
-                    <i class="fa-solid fa-lock text-slate-500"></i>
-                </div>
-                <div
-                    class="flex justify-between items-center my-4 shadow-sm border rounded-md w-full py-3 px-5 hover:bg-slate-100">
-                    <div class="flex items-center">
-                        <i class="fa-solid fa-video text-slate-500"></i>
-                        <p class="pl-4 text-slate-700">Cara Benar Bayar Zakat Maal</p>
-                    </div>
-                    {{-- <i class="fa-solid fa-play text-utama"></i> --}}
-                    <i class="fa-solid fa-lock text-slate-500"></i>
-                </div>
-
-            </div>
+            @endif
         </div>
     </main>
     @push('footer')
@@ -110,15 +105,3 @@
         </footer>
     @endpush
 @endsection
-{{-- @push('styles')
-    <style>
-        .reset-tailwind {
-            all: unset;
-            display: block;
-            margin: 0;
-            padding: 0;
-            color: inherit;
-            font: inherit;
-        }
-    </style>
-@endpush --}}

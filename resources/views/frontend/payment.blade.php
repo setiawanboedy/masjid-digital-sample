@@ -1,7 +1,7 @@
 @extends('layouts.custom', ['title' => 'Pembayaran'])
 @section('content')
     <main class="container max-w-2xl mx-auto flex-1 pb-14 font-nunito relative">
-        <a href="{{ route('event.detail.index') }}" class="absolute z[999] -top-[70px] md:left-0 left-4">
+        <a href="{{url()->previous()}}" class="absolute z[999] -top-[70px] md:left-0 left-4">
             <i class="fa-solid fa-arrow-left fa-lg absolute left-0 text-[#394760]"></i>
         </a>
         <div class="my-8 px-3">

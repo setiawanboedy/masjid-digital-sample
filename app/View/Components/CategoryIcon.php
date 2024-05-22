@@ -8,13 +8,13 @@ use Illuminate\View\Component;
 
 class CategoryIcon extends Component
 {
-    public $categoryKey;
+    public $event;
     /**
      * Create a new component instance.
      */
-    public function __construct($categoryKey)
+    public function __construct($event)
     {
-        $this->categoryKey = $categoryKey;
+        $this->event = $event;
     }
 
     /**
@@ -22,6 +22,12 @@ class CategoryIcon extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.category-icon');
+        $episode = 0;
+        if ($this->event->series != null) {
+            $episode = $this->event->series->count();
+        }
+        return view('components.category-icon',[
+            'episode'=>$episode,
+        ]);
     }
 }

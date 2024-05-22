@@ -31,6 +31,7 @@
         </style>
         <!-- Styles -->
         @livewireStyles
+        @toastifyCss
     </head>
     <body class="sans antialiased">
 
@@ -60,6 +61,7 @@
         @include('admin.includes.modal.logout')
         @stack('modals')
         @include('admin.includes.scripts')
+        @toastifyJs
         @livewireScripts
         @stack('scripts')
     </body>

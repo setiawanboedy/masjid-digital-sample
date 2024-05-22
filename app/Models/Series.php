@@ -12,6 +12,7 @@ class Series extends Model
     protected $fillable = [
         'event_id',
         'is_unlock',
+        'title',
         'video_url',
     ];
 }

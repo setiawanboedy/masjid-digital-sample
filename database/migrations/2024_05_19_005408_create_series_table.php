@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('event_id')->nullable()->constrained();
             $table->text('video_url');
+            $table->text('title');
             $table->boolean('is_unlock')->default(false);
             $table->timestamps();
         });

@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Helper;
+
+use Carbon\Carbon;
 use DateTime;
 
-class ConvertDateFormat{
+class ConvertDateTimeFormat{
 
     public static function bulanIndo(){
        return [
@@ -30,7 +32,7 @@ class ConvertDateFormat{
     
         $formattedDate = $dateStamp->format('d F Y');
     
-        foreach (ConvertDateFormat::bulanIndo() as $eng => $ind) {
+        foreach (ConvertDateTimeFormat::bulanIndo() as $eng => $ind) {
             $formattedDate = str_replace($eng, $ind, $formattedDate);
         }
     
@@ -41,10 +43,28 @@ class ConvertDateFormat{
     
         $formattedDate = $dateStamp->format('F Y');
     
-        foreach (ConvertDateFormat::bulanIndo() as $eng => $ind) {
+        foreach (ConvertDateTimeFormat::bulanIndo() as $eng => $ind) {
             $formattedDate = str_replace($eng, $ind, $formattedDate);
         }
     
         return $formattedDate;
+    }
+
+
+    public static function toDateId($dateTime)
+    {
+        Carbon::setLocale('id');
+        $datetime = Carbon::parse($dateTime);
+        $formattedDate = $datetime->translatedFormat('d F Y');
+
+        return $formattedDate;
+    }
+
+    public static function toTime($dateTime)
+    {
+        $datetime = Carbon::parse($dateTime);
+        $formattedTime = $datetime->format('H:i');
+
+        return $formattedTime;
     }
 }
