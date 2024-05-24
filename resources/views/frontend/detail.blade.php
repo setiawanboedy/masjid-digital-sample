@@ -71,7 +71,7 @@
                 </div>
             </div>
 
-            @if ($event->category_key == 'SERIES')
+            @if ($event->category_key == \App\Helper\ConstData::SERIES)
                 <header class="mt-8">
                     <h1 class="font-bold text-xl">Preview Video</h1>
                 </header>
@@ -99,7 +99,7 @@
     @push('footer')
         <footer
             class="bg-white max-w-2xl mx-auto flex-1 border border-gray-200 fixed px-2 py-2 bottom-0 inset-x-0 w-screen z-[999] rounded-md shadow">
-            <a href="{{ route('event.payment.index') }}">
+            <a href="{{ route('event.payment.index', $event->slug) }}">
                 <button class="bg-utama w-full text-white py-2 rounded-md">Ikuti Event</button>
             </a>
         </footer>

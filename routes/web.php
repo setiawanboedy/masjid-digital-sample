@@ -31,52 +31,49 @@ Route::prefix('admin')
         })->name('admin.event.index');
 
         Route::get('/event/buat', [BackendController::class, 'createEvent'])->name('admin.event.create');
-        
     });
 
-    Route::middleware([
-        'auth:sanctum',
-        config('jetstream.auth_session'),
-        'verified',
-        'admin'
-    ])->group(function () {
-        Route::post('/upload/editor', [BackendController::class, 'uploadImageTextEditor'])->name('editor.image.upload');
-    });    
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+    'admin'
+])->group(function () {
+    Route::post('/upload/editor', [BackendController::class, 'uploadImageTextEditor'])->name('editor.image.upload');
+});
 
 
-    // Frontend
+// Frontend
 Route::get('/', [FrontEndController::class, 'home'])->name('home.index');
 
 Route::get('/event', function () {
     return view('frontend.event');
 })->name('event.index');
 
-Route::get('/event/pembayaran', function () {
-    return view('frontend.payment');
-})->name('event.payment.index');
+Route::get('/event/pembayaran/{slug}', [FrontEndController::class, 'payment'])->name('event.payment.index');
 
 Route::get('/event/detail/{slug}', [FrontEndController::class, 'detailEvent'])->name('event.detail.index');
 
 Route::get('/masuk', function () {
-return view('frontend.auth.login');
+    return view('frontend.auth.login');
 })->name('login.index');
 
 Route::get('/daftar', function () {
-return view('frontend.auth.register');
+    return view('frontend.auth.register');
 })->name('register.index');
 
 Route::middleware([
-        'auth:sanctum',
-        config('jetstream.auth_session'),
-        'verified',
-    ])->group(function () {
-        Route::get('/transaksi', function () {
-            return view('frontend.transaction');
-        })->name('transaction.index');
-        
-        Route::get('/profil', function () {
-            return view('frontend.profile');
-        })->name('profile.index');
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/transaksi', function () {
+        return view('frontend.transaction');
+    })->name('transaction.index');
 
-    });
+    Route::get('/profil', function () {
+        return view('frontend.profile');
+    })->name('profile.index');
 
+    Route::post('/event/payment/pay/{slug}', [FrontEndController::class, 'pay'])->name('event.payment.pay');
+});

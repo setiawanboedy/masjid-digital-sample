@@ -20,6 +20,7 @@
         @stack('styles')
         <!-- Styles -->
         @livewireStyles
+        @toastifyCss
     </head>
     <body class="font-nunito antialiased">
 
@@ -37,6 +38,7 @@
 
         @stack('modals')
         @stack('scripts')
+        @toastifyJs
         @livewireScripts
     </body>
 </html>

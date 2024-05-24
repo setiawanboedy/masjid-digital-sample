@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Admin\Event;
 
+use App\Helper\ConstData;
 use App\Models\Event;
 use App\Models\Series;
 use Carbon\Carbon;
@@ -72,7 +73,7 @@ class CreateEvent extends Component
             $input['user_id'] = Auth::user()->id;
             $input['image'] = $this->image->store('posters', 'public');
 
-            if ($this->category === 'SERIES') {
+            if ($this->category === ConstData::SERIES) {
                 DB::transaction(function() use ($input) {
                    return tap(Event::create($input), function (Event $event){
                         $this->saveVideoUrl($event);
@@ -87,8 +88,7 @@ class CreateEvent extends Component
             toastify()->success('Event berhasil ditambahkan!');
             return redirect()->route('admin.event.index');
         } catch (\Exception $e) {
-            dd($e->getMessage());
-            toastify()->danger('Event gagal ditambahkan!');
+            toastify()->error('Event gagal ditambahkan!');
             return redirect()->back();
         }
     }

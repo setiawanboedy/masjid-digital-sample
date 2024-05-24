@@ -1,5 +1,5 @@
 <div>
-    @if ($event->categoryKey == 'SERIES')
+    @if ($event->categoryKey == \App\Helper\ConstData::SERIES)
         <div class="flex items-center mt-1">
             <svg stroke="grey" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
                 stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
@@ -11,7 +11,7 @@
             <p class="text-sm text-gray-500 pl-2">{{$episode}} Episode</p>
 
         </div>
-    @elseif ($event->categoryKey == 'ONLINE')
+    @elseif ($event->categoryKey == \App\Helper\ConstData::ONLINE)
         <div class="flex items-center mt-1">
             <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
                 stroke-linejoin="round" class="text-slate-400" height="1em" width="1em"
@@ -23,7 +23,7 @@
             </svg>
             <p class="text-sm text-gray-500 pl-2">Event Online</p>
         </div>
-    @elseif ($event->categoryKey == 'OFFLINE')
+    @elseif ($event->categoryKey == \App\Helper\ConstData::OFFLINE)
         <div class="flex items-center mt-1">
             <svg stroke="grey" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
                 stroke-linejoin="round" class="flex-shrink-0" height="1em" width="1em"

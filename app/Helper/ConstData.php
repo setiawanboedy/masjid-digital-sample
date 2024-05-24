@@ -2,6 +2,12 @@
 namespace App\Helper;
 
 class ConstData{
-    const ID_HAK_AMIL = 25;
-    const ID_KWITANSI = 1;
+    const SERIES = 'SERIES';
+    const ONLINE = 'ONLINE';
+    const OFFLINE = 'OFFLINE';
+
+    // status transaksi
+    const SUCCESS = 'SUCCESS';
+    const PENDING = 'PENDING';
+    const FAILED = 'FAILED';
 }

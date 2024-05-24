@@ -60,7 +60,7 @@
                 </div>
             </div>
 
-            @if ($category === 'SERIES')
+            @if ($category === \App\Helper\ConstData::SERIES)
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="mb-3">
                         <div class="d-flex justify-content-between align-items-center mb-2">
