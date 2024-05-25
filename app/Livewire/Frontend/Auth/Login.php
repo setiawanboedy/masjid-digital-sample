@@ -34,22 +34,22 @@ class Login extends Component
     
             if ($user && Auth::attempt([$field => $this->email_phone, 'password' => $this->password])) {
                 session()->regenerate();
-                redirect('/');
+                redirect()->route('home.index');
             }else{
-                $success = [
-                    "title"=>"Berhasil",
+                $error = [
+                    "title"=>"Gagal",
                     "text"=>"Email atau password Anda salah!",
                     "icon"=>"error",
                 ];
-                $this->dispatch('refresh', data: $success);
+                $this->dispatch('refresh', data: $error);
             }
         } catch (\Exception $e) {
-            $success = [
-                "title"=>"Berhasil",
+            $error = [
+                "title"=>"Gagal",
                 "text"=>"Terjadi kesalahan pada server",
                 "icon"=>"error",
             ];
-            $this->dispatch('refresh', data: $success);
+            $this->dispatch('refresh', data: $error);
         }
     }
 

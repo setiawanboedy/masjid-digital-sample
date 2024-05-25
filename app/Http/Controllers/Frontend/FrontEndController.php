@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Helper\ConstData;
 use App\Helper\TransactionHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Event;
@@ -14,9 +15,18 @@ class FrontEndController extends Controller
     public function home(Request $request)
     {
         $events = Event::orderBy('created_at', 'desc')->get();
-        return view('frontend.home', [
-            'events' => $events
-        ]);
+        $series_events = Event::where('category', ConstData::SERIES)->orderBy('created_at', 'desc')->get();
+        $online_events = Event::where('category', ConstData::ONLINE)->orderBy('created_at', 'desc')->get();
+        $offline_events = Event::where('category', ConstData::OFFLINE)->orderBy('created_at', 'desc')->get();
+
+        $response = [
+            'events' => $events,
+            'series_events' => $series_events,
+            'online_events' => $online_events,
+            'offline_events' => $offline_events,
+
+        ];
+        return view('frontend.home', $response);
     }
 
     public function detailEvent($slug, Request $request)
@@ -57,15 +67,6 @@ class FrontEndController extends Controller
             return redirect()->back();
         }
     }
-
-    // public function transaction(Request $request)
-    // {
-    //     $userId = $request->user()->id;
-    //     $transactions = Transaction::where('user_id', $userId);
-    //     return view('frontend.payment', [
-    //         'event' => $event
-    //     ]);
-    // }
 
 
 }

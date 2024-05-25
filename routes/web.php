@@ -66,6 +66,7 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
+    'user'
 ])->group(function () {
     Route::get('/transaksi', function () {
         return view('frontend.transaction');
@@ -74,6 +75,10 @@ Route::middleware([
     Route::get('/profil', function () {
         return view('frontend.profile');
     })->name('profile.index');
+
+    Route::get('/profil/edit', function () {
+        return view('frontend.edit-profile');
+    })->name('profile.edit.index');
 
     Route::post('/event/payment/pay/{slug}', [FrontEndController::class, 'pay'])->name('event.payment.pay');
 });

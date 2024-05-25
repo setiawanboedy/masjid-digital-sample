@@ -20,6 +20,11 @@ class Event extends Model
         'description',
     ];
 
+    public function scopeSearch($query, $search)
+    {
+        return $query->where('title', 'like', '%'.$search.'%');
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

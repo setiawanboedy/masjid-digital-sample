@@ -2,19 +2,11 @@
 @section('content')
 <main class="max-w-2xl mx-auto flex-1 relative pb-14 font-nunito">
   <div class="my-8 px-4">
-    <div class="flex items-center mb-10">
-      <div class="rounded-full w-[64px] h-[64px] bg-blue-950 flex justify-center items-center">
-        <h1 class="text-white font-semibold text-2xl">B</h1>
-      </div>
-      <div class="pl-6">
-        <h1 class="font-bold text-xl">Budi Setiawan</h1>
-        <p class="text-slate-500">budisetiawan.dev@gmail.com</p>
-      </div>
-    </div>
+    @livewire('frontend.profile.top-detail')
 
     <h2 class="font-bold text-gray-900 text-xl">Data Pribadi</h2>
     <div class="mt-6 mb-2">
-      <div class="flex justify-content-between items-center cursor-pointer hover:bg-slate-100 hover:rounded-md py-4">
+      <a href="/profil/edit" wire:navigate class="flex justify-content-between items-center cursor-pointer hover:bg-slate-100 hover:rounded-md py-4">
         <div class="flex items-center">
           <svg stroke="currentColor" fill="none" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" height="24"
             width="24" xmlns="http://www.w3.org/2000/svg">
@@ -30,8 +22,8 @@
             d="M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z"
             clip-rule="evenodd"></path>
         </svg>
-      </div>
-      <div class="flex justify-content-between items-center cursor-pointer hover:bg-slate-100 hover:rounded-md py-4">
+      </a>
+      <a href="/transaksi" wire:navigate class="flex justify-content-between items-center cursor-pointer hover:bg-slate-100 hover:rounded-md py-4">
         <div class="flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" fill="currentColor"
             class="bi bi-receipt ml-[1px]" viewBox="0 0 16 16">
@@ -48,7 +40,7 @@
             d="M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z"
             clip-rule="evenodd"></path>
         </svg>
-      </div>
+      </a>
 
       <form method="POST" action="{{ route('logout') }}" id="logout"  x-data>
         @csrf

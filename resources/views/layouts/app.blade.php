@@ -16,10 +16,11 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        
+        <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
         @stack('styles')
         <!-- Styles -->
         @livewireStyles
+        @toastifyCss
     </head>
     <body class="font-nunito antialiased">
 
@@ -37,6 +38,7 @@
         @stack('modals')
         
         @stack('scripts')
+        @toastifyJs
         @livewireScripts
     </body>
 </html>

@@ -1,5 +1,38 @@
 
-.reset-tailwind h1 {
-  font-weight: bold;
-  font-size: larger;
+/* Add this to your main CSS file or directly in your Blade template */
+.shimmer {
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: shimmer;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background-size: 1000px 104px;
+  position: relative;
+}
+
+@keyframes shimmer {
+  0% {
+      background-position: -1000px 0;
+  }
+  100% {
+      background-position: 1000px 0;
+  }
+}
+
+.shimmer-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.shimmer-line {
+  height: 20px;
+  width: 100%;
+}
+
+.shimmer-title {
+  height: 30px;
+  width: 60%;
 }

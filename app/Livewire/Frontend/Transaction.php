@@ -10,7 +10,7 @@ use Livewire\WithPagination;
 class Transaction extends Component
 {
     use WithPagination;
-    public $perPage = 10;
+    public $perPage = 5;
     public $filterBy;
 
     public function mount(){

@@ -7,7 +7,7 @@
             <input type="text" wire:model.live.debounce.300ms='name' value="{{ old('name') }}" name="name"
                 id="name"
                 class="w-full border rounded-md py-2 px-4 shadow-sm focus:outline-none focus:ring-1 focus:ring-utama @error('name') border-red-600 @enderror"
-                placeholder="Masukkan lengkap Anda" required>
+                placeholder="Nama lengkap" required>
                 @error('name')
                 <div class="block text-red-600">
                     {{ $message }}
@@ -20,7 +20,7 @@
             <input type="email"
             wire:model.live.debounce.300ms='email' value="{{ old('email') }}" name="email" id="email"
                 class="w-full border rounded-md py-2 px-4 shadow-sm focus:outline-none focus:ring-1 focus:ring-utama @error('email') border-red-600 @enderror"
-                placeholder="Masukkan email" required>
+                placeholder="Alamat email aktif" required>
                 @error('email')
                 <div class="block text-red-600">
                     {{ $message }}
@@ -32,7 +32,7 @@
             <input type="number"
             wire:model.live.debounce.300ms='phone' value="{{ old('phone') }}" name="phone" id="phone"
                 class="w-full border rounded-md py-2 px-4 shadow-sm focus:outline-none focus:ring-1 focus:ring-utama @error('phone') border-red-600 @enderror"
-                placeholder="Masukkan nomor hp" required>
+                placeholder="Nomor telepon aktif" required>
                 @error('phone')
                 <div class="block text-red-600">
                     {{ $message }}
@@ -45,7 +45,7 @@
             <input type="password"
             wire:model.live.debounce.300ms='password' value="{{ old('password') }}" name="password" autocomplete="new-password"
                 class="w-full border rounded-md py-2 px-4 shadow-sm focus:outline-none focus:ring-1 focus:ring-utama @error('password') border-red-600 @enderror"
-                placeholder="Masukkan kata sandi" required>
+                placeholder="Kata sandi" required>
                 @error('password')
                 <div class="block text-red-600">
                     {{ $message }}
