@@ -10,4 +10,6 @@ class ConstData{
     const SUCCESS = 'SUCCESS';
     const PENDING = 'PENDING';
     const FAILED = 'FAILED';
+    const ALL = 'ALL';
+
 }

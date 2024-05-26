@@ -29,9 +29,9 @@
     <div class="mt-8">
         <!-- Failed -->
         @foreach ($transactions as $transaction)
-            <div class="flex justify-between mt-4 relative shadow-sm rounded-md border p-4">
+            <a href="{{route('transaction.detail.index', $transaction->id)}}"  class="flex justify-between cursor-pointer mt-4 relative shadow-sm rounded-md border p-4">
                 <div class="flex">
-                    <img src="https://afw.imgix.net/pondokdigital/cover/RPrxMgzGxcUQ9h2bxvts3Wyhq4Y6CVCGiekP5UTx.png?w=300&amp;fit=crop&amp;auto=format,compress"
+                    <img src="{{Storage::url($transaction->event->image)}}?w=300&amp;fit=crop&amp;auto=format,compress"
                         alt=""
                         class="relative rounded-md shadow-md z-[1] aspect-[4/5] object-cover h-40 md:h-32">
                     <div class="pl-4">
@@ -69,7 +69,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         @endforeach
         <div class="mt-4">
           @if ($filterBy == 'ALL')

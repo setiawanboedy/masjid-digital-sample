@@ -75,10 +75,18 @@ class FrontEndController extends Controller
             'event' => $event
         ]);
     }
+
+    public function transactionDetail($id, Request $request)
+    {
+        $transaction = Transaction::findOrFail($id);
+        return view('frontend.detail-transaction', [
+            'transaction' => $transaction
+        ]);
+    }
+
     public function pay($slug, Request $request)
     {
         try {
-            // dd($request->all());
             if ($request->amount) {
                 $event = Event::where('slug', $slug)->firstOrFail();
                 $transactionCode = TransactionHelper::generateTransactionCode();
@@ -93,11 +101,9 @@ class FrontEndController extends Controller
             toastify()->success('Berhasil membuat transaksi');
             return redirect()->back();
         } catch (\Exception $e) {
-            dd($e->getMessage());
             toastify()->error('Gagal membuat transaksi');
             return redirect()->back();
         }
     }
-
 
 }

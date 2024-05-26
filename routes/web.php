@@ -75,14 +75,15 @@ Route::middleware([
     Route::get('/transaksi', function () {
         return view('frontend.transaction');
     })->name('transaction.index');
-
+    
     Route::get('/profil', function () {
         return view('frontend.profile');
     })->name('profile.index');
-
+    
     Route::get('/profil/edit', function () {
         return view('frontend.edit-profile');
     })->name('profile.edit.index');
-
+    
     Route::post('/event/payment/pay/{slug}', [FrontEndController::class, 'pay'])->name('event.payment.pay');
+    Route::get('/transaksi/detail/{id}', [FrontEndController::class, 'transactionDetail'])->name('transaction.detail.index');
 });
