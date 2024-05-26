@@ -12,7 +12,7 @@
                 <div class="flex-1 pr-4">
                     <h2 class="font-bold text-xl">EVENT TERBARU</h2>
                 </div><a class="text-primary-700 font-bold text-sm flex items-center gap-2 flex-shrink-0"
-                    href="#">Selengkapnya <svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                    href="/event" wire:navigate >Selengkapnya <svg stroke="currentColor" fill="currentColor" stroke-width="0"
                         viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em"
                         xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd"
@@ -44,7 +44,7 @@
                     <div class="flex-1 pr-4">
                         <h2 class="font-bold text-xl">Web Series</h2>
                     </div><a class="text-primary-700 font-bold text-sm flex items-center gap-2 flex-shrink-0"
-                        href="/category/hidupbahagia">Selengkapnya <svg stroke="currentColor" fill="currentColor"
+                        href="/event/web-series" wire:navigate>Selengkapnya <svg stroke="currentColor" fill="currentColor"
                             stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -77,7 +77,7 @@
                     <div class="flex-1 pr-4">
                         <h2 class="font-bold text-xl">Event Online</h2>
                     </div><a class="text-primary-700 font-bold text-sm flex items-center gap-2 flex-shrink-0"
-                        href="/category/Fiqh">Selengkapnya <svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                    href="/event/event-online" wire:navigate >Selengkapnya <svg stroke="currentColor" fill="currentColor" stroke-width="0"
                             viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -110,7 +110,7 @@
                     <div class="flex-1 pr-4">
                         <h2 class="font-bold text-xl">Event Offline</h2>
                     </div><a class="text-primary-700 font-bold text-sm flex items-center gap-2 flex-shrink-0"
-                        href="/category/Fiqh">Selengkapnya <svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                    href="/event/event-offline" wire:navigate>Selengkapnya <svg stroke="currentColor" fill="currentColor" stroke-width="0"
                             viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"

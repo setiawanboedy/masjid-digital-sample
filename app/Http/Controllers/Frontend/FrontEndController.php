@@ -29,6 +29,37 @@ class FrontEndController extends Controller
         return view('frontend.home', $response);
     }
 
+    public function webSeries(Request $request)
+    {
+        $series_events = Event::where('category', ConstData::SERIES)->orderBy('created_at', 'desc')->get();
+
+        $response = [
+            'series_events' => $series_events,
+
+        ];
+        return view('frontend.category.event-web-series', $response);
+    }
+    public function eventOnline(Request $request)
+    {
+        $online_events = Event::where('category', ConstData::ONLINE)->orderBy('created_at', 'desc')->get();
+
+        $response = [
+            'online_events' => $online_events,
+
+        ];
+        return view('frontend.category.event-online', $response);
+    }
+    public function eventOffline(Request $request)
+    {
+        $offline_events = Event::where('category', ConstData::OFFLINE)->orderBy('created_at', 'desc')->get();
+
+        $response = [
+            'offline_events' => $offline_events,
+
+        ];
+        return view('frontend.category.event-offline', $response);
+    }
+
     public function detailEvent($slug, Request $request)
     {
         $event = Event::where('slug', $slug)->firstOrFail();

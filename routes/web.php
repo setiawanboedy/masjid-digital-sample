@@ -46,6 +46,10 @@ Route::middleware([
 // Frontend
 Route::get('/', [FrontEndController::class, 'home'])->name('home.index');
 
+Route::get('/event/web-series', [FrontEndController::class, 'webSeries'])->name('web-series.index');
+Route::get('/event/event-online', [FrontEndController::class, 'eventOnline'])->name('event-online.index');
+Route::get('/event/event-offline', [FrontEndController::class, 'eventOffline'])->name('event-offline.index');
+
 Route::get('/event', function () {
     return view('frontend.event');
 })->name('event.index');
