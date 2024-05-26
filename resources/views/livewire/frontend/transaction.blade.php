@@ -13,7 +13,6 @@
                         d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5" />
                 </svg>
             </div>
-
             <select id="states" wire:model.live.debounce.400ms='filterBy'
                 class="form-select bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-e-lg border-s-gray-100 border-s-2 focus:border-s-2 focus:right-0 focus:outline-none px-4">
                 <option selected value="ALL">Semua</option>
@@ -37,7 +36,6 @@
                     <div class="pl-4">
                         <p class="text-sm">{{ $transaction->code }}</p>
                         <h1 class="font-bold text-lg">{{ $transaction->event->title }}</h1>
-
                         <div class="flex items-center mt-2">
                             <svg class="text-gray-500" stroke="currentColor" fill="none" stroke-width="2"
                                 viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em"

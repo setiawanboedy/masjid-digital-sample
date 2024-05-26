@@ -99,7 +99,7 @@ class FrontEndController extends Controller
                 ]);
             }
             toastify()->success('Berhasil membuat transaksi');
-            return redirect()->back();
+            return redirect()->route('transaction.index');
         } catch (\Exception $e) {
             toastify()->error('Gagal membuat transaksi');
             return redirect()->back();
